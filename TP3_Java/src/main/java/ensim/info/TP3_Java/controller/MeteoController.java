@@ -33,18 +33,15 @@ public class MeteoController {
         model.addAttribute("longitude", longitude);
         model.addAttribute("latitude", latitude);
 
-
-
-        String token = "apiMeteoProjetEnsim";
-        token = "3dddb677ae1b277e2b9185b3b57c7a191d5495495584340cb6cca2473817bd9d";
+        // "apiMeteoProjetEnsim";
+        String token = "3dddb677ae1b277e2b9185b3b57c7a191d5495495584340cb6cca2473817bd9d";
 
         query = "https://api.meteo-concept.com/api/forecast/nextHours?token=" + token + "&latlng=" + latitude + "," + longitude;
 
         MeteoConceptAPIAddress response2 = rt.getForObject(query, MeteoConceptAPIAddress.class);
 
-        int meteo = response2.forecast.get(0).getWeather();
         int temp2m = response2.forecast.get(0).getTemp2m();
-        model.addAttribute("meteo", meteo);
+
         model.addAttribute("temp2m", temp2m);
         return "meteo";
     }

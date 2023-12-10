@@ -7,9 +7,6 @@
 <body>
     <div th:replace="~{fragments/navbar :: navbar}"></div>
     <h1>Coordonnées</h1>
-    <p th:text="${longitude}"/>
-    <p th:text="${latitude}"/>
-    <p th:text="${meteo}"/>
     <p th:text="'Il fait ' + ${temp2m} + '°C'"/>
 </body>
 </html>
